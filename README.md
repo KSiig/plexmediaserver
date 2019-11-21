@@ -1,3 +1,5 @@
+![](https://github.com/KSiig/plexmediaserver/workflows/Build/badge.svg)
+
 # Plexmediaserver
 
 Simple ansible role to install [Plex Media Server](https://www.plex.tv/media-server-downloads/)
