@@ -1,4 +1,4 @@
-# Role Name
+# Plexmediaserver
 
 Simple ansible role to install [Plex Media Server](https://www.plex.tv/media-server-downloads/)
 
