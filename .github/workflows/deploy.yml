@@ -1,0 +1,33 @@
+name: Deploy to Ansible Galaxy
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          path: plexmediaserver
+
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1.1.1
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Authenticate with Ansible Galaxy
+        run: |
+          ansible-galaxy login --github-token=${ANSIBLE_GALAXY_TOKEN}
+        env:
+          ANSIBLE_GALAXY_TOKEN: ${{ secrets.ANSIBLE_GALAXY_TOKEN }}
+
+      - name: Deploy to Ansible Galaxy
+        run: |
+          ansible-galaxy import KSiig plexmediaserver

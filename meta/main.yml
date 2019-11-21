@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  author: KSiig
+  description: Installs Plex Media Server
+  license: license (GPLv3)
+
+  min_ansible_version: 2.8
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - disco dingo
+
+  galaxy_tags:
+    - plex
+    - plexmediaserver
+    - pms
+
+dependencies: []

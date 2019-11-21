@@ -1,0 +1,30 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: ubuntu-bionic
+    image: ubuntu:bionic
+    privileged: true
+    published_ports:
+      - 32400:32400
+  - name: ubuntu-disco
+    image: ubuntu:disco
+    privileged: true
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    host_vars:
+      ubuntu-bionic:
+        ansible_user: ansible
+      ubuntu-disco:
+        ansible_user: ansible
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

@@ -1,0 +1,27 @@
+---
+- name: Install Plex dependencies
+  apt:
+    name: "{{ plex_dependencies }}"
+    state: present
+    update_cache: true
+  become: true
+
+- name: Add Plex GPG key
+  apt_key:
+    url: "{{ plex_gpg_key }}"
+    state: present
+  become: true
+
+- name: Add Plex repository
+  apt_repository:
+    repo: "{{ plex_apt_repository }}"
+    state: present
+  become: true
+
+- name: Install Plex
+  apt:
+    name: "{{ plex_pkg_name }}"
+    state: present
+    update_cache: true
+  become: true
+  notify: start plex
