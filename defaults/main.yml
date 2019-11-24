@@ -7,3 +7,4 @@ plex_gpg_key: https://downloads.plex.tv/plex-keys/PlexSign.key
 plex_apt_repository: deb https://downloads.plex.tv/repo/deb public main
 plex_pkg_name: plexmediaserver
 plex_svc_name: "{{ plex_pkg_name }}"
+plex_pkg_state: latest

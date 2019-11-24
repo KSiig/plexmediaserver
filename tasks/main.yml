@@ -2,7 +2,7 @@
 - name: Install Plex dependencies
   apt:
     name: "{{ plex_dependencies }}"
-    state: present
+    state: "{{ plex_pkg_state }}"
     update_cache: true
   become: true
 
